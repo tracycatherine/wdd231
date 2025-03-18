@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Chamber Directory - Nalubwama Tracy Catherine Chamber of Commerce">
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://tracycatherine.github.io/wdd231/chamber/images/logo.png"/>
+	<meta property="og:url" content="https://tracycatherine.github.io/wdd231/chamber/" />
+	<meta name="facebook:card" content="summary_large_image">
+	<meta name="description" content="Explore the NTC Chamber of Commerce Directory - Your gateway to local businesses and community connections">
+	<meta name="author" content="Nalubwama Tracy Catherine">   
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+	<link rel="icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="styles/style.css">
+	<title>Chamber Directory - Nalubwama Tracy Catherine Chamber of Commerce</title>
+</head>
+<body>
+	<header class="header">
+		<img src="images/logo.png" alt="NTC Chamber Logo">
+		
+		<nav>
+			<div class="hamburger-menu" id="hamburgerMenu">
+				<div class="bar"></div>
+				<div class="bar"></div>   
+				<div class="bar"></div>
+			</div>
+			<div class="nav-links" id="navLinks">
+					<a href="index.html" class="active">Home</a></li>
+					<a href="directory.html">chamber Directory</a></li>
+					<a href="discover.html">Discover</a></li>
+					<a href="join.html">Join</a></li>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<section class="hero">
+			<div class="hero-content">
+				<h1>Chamber Directory web</h1>
+				<a href="#" class="hero-button" aria-label="Learn more about the NTC Chamber Directory">LEARN MORE</a>
+			</div>
+		</section>
+		<div class="content">
+			<h2>Welcome to the NTC Chamber Directory</h2>
+			<button id="toggleView" aria-label="Toggle between list and grid view">TOGGLE VIEW</button>
+			<div id="memberContainer" class="list-view"></div>
+			
+			<!-- New div for spotlight members -->
+			<div id="spotlight-container" class="spotlight"></div>
+		</div>
+	</main>
+	<footer class="footer">
+		<div class="business-cards">
+			<div class="business-card">
+				<img src="images/NTC.jpg" alt="NTC">
+				<div class="card-info">
+					<p class="name">Nalubwama Tracy Catherine</p>
+					<p class="position">CEO</p>
+					<p class="company">NTC Chamber of Commerce</p>
+				</div>
+			</div>
+			<div class="business-card">
+				<img src="images/flwa.jpg" alt="Nakitto Flawa">
+				<div class="card-info">
+					<p class="name">Flawa</p>
+					<p class="position">Director</p>
+					<p class="company">NTC Chamber of Commerce</p>
+				</div>
+			</div>
+			<div class="business-card">
+				<img src="images/jane.jpg" alt="Jane">
+				<div class="card-info">
+					<p class="name">Mrs.Jane</p>
+					<p class="position">Member</p>
+					<p class="company">NTC of Commerce</p>
+				</div>
+			</div>
+		</div>
+		<div class="contact-info">
+			<p>Contact us at: info@ntcchamber.com</p>
+		</div>
+		<div class="social-icons">
+			<a href="https://www.facebook.com" target="_blank" aria-label="Visit our Facebook page"><i class="fab fa-facebook"></i></a>
+			<a href="https://www.twitter.com" target="_blank" aria-label="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+			<a href="https://www.instagram.com" target="_blank" aria-label="Visit our Instagram page"><i class="fab fa-instagram"></i></a>
+		</div>
+		<p>&copy; <span id="currentYear"></span> | Last Updated: <span id="lastModified"></span></p>
+	</footer>
+	<script src="scripts/scripts.js" defer></script>
+</body>
+</html>

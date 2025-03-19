@@ -9,79 +9,90 @@ const courses = [
 ];
 
 // DOM Elements
-const certificateList = document.getElementById('certificateList');
-const filterAll = document.getElementById('filter-all');
-const filterCSE = document.getElementById('filter-cse');
-const filterWDD = document.getElementById('filter-wdd');
-const menuToggle = document.getElementById('menu-toggle'); // Updated selector
-const navbarUl = document.querySelector('.navbar ul');
-const totalCreditsDiv = document.getElementById('totalCredits');
+const certificateList = document.getElementById("certificateList");
+const filterAll = document.getElementById("filter-all");
+const filterCSE = document.getElementById("filter-cse");
+const filterWDD = document.getElementById("filter-wdd");
+const menuToggle = document.getElementById("menu-toggle");
+const navbarUl = document.querySelector(".navbar ul");
+const totalCreditsDiv = document.getElementById("totalCredits");
 
 // Toggle mobile menu
-menuToggle?.addEventListener('click', () => {
-    navbarUl.classList.toggle('show');
+menuToggle?.addEventListener("click", () => {
+    navbarUl.classList.toggle("show");
 });
 
 // Highlight active page link
-const currentPage = window.location.pathname.split('/').pop();
-document.querySelectorAll('.navbar ul a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-        link.classList.add('active');
+const currentPage = window.location.pathname.split("/").pop();
+document.querySelectorAll(".navbar ul a").forEach((link) => {
+    if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
     }
 });
 
 // Filter courses
-function filterCourses(type = 'all') {
-    certificateList.innerHTML = '';
-    const filteredCourses = type === 'all' ? courses : courses.filter(course => course.code.startsWith(type));
-    const totalCredits = filteredCourses.length * 2;
-    if (totalCreditsDiv) totalCreditsDiv.textContent = `Total Credits: ${totalCredits}`;
+function filterCourses(type = "all") {
+    certificateList.innerHTML = "";
 
-    filteredCourses.forEach(course => {
-        const courseCard = document.createElement('div');
-        courseCard.className = `course-card ${course.completed ? 'completed' : ''}`;
-        courseCard.innerHTML = `<h3>${course.code}</h3><p>${course.name}</p><p>Status: ${course.completed ? 'Completed' : 'In Progress'}</p>`;
+    const filteredCourses =
+        type === "all" ? courses : courses.filter((course) => course.code.startsWith(type));
+
+    const totalCredits = filteredCourses.length * 2;
+    if (totalCreditsDiv) {
+        totalCreditsDiv.textContent = `Total Credits: ${totalCredits}`;
+    }
+
+    filteredCourses.forEach((course) => {
+        const courseCard = document.createElement("div");
+        courseCard.className = `course-card ${course.completed ? "completed" : ""}`;
+        courseCard.innerHTML = `
+            <h3>${course.code}</h3>
+            <p>${course.name}</p>
+            <p>Status: ${course.completed ? "Completed" : "In Progress"}</p>
+        `;
         certificateList.appendChild(courseCard);
     });
 }
 
 // Add event listeners to filter buttons
 [
-    { btn: filterAll, type: 'all' },
-    { btn: filterCSE, type: 'CSE' },
-    { btn: filterWDD, type: 'WDD' }
+    { btn: filterAll, type: "all" },
+    { btn: filterCSE, type: "CSE" },
+    { btn: filterWDD, type: "WDD" }
 ].forEach(({ btn, type }) => {
-    btn?.addEventListener('click', () => {
-        document.querySelectorAll('.certificate-buttons button').forEach(button => button.classList.remove('active'));
-        btn.classList.add('active');
+    btn?.addEventListener("click", () => {
+        document
+            .querySelectorAll(".certificate-buttons button")
+            .forEach((button) => button.classList.remove("active"));
+        btn.classList.add("active");
         filterCourses(type);
     });
 });
 
 // Set the current year and last modified date
-document.getElementById('currentyear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = `Last Update: ${document.lastModified}`;
+document.getElementById("currentyear").textContent = new Date().getFullYear();
+document.getElementById("lastModified").textContent = `Last Update: ${document.lastModified}`;
 
 // Theme Toggle
-const themeToggle = document.createElement('button');
-themeToggle.id = 'theme-toggle';
-themeToggle.textContent = 'Toggle Theme';
+const themeToggle = document.createElement("button");
+themeToggle.id = "theme-toggle";
+themeToggle.textContent = "Toggle Theme";
 document.body.prepend(themeToggle);
 
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    const isDark = document.body.classList.contains('dark-theme');
-    themeToggle.textContent = isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+    const newTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
+    themeToggle.textContent = newTheme === "dark" ? "Switch to Light Theme" : "Switch to Dark Theme";
 });
 
 // Apply saved theme on load
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-    themeToggle.textContent = 'Switch to Light Theme';
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+    themeToggle.textContent = "Switch to Light Theme";
 }
 
 // Initial display
-filterCourses('all');
-filterAll?.classList.add('active');
+filterCourses("all");
+filterAll?.classList.add("active");

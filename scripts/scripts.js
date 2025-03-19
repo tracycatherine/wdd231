@@ -62,6 +62,26 @@ function filterCourses(type = 'all') {
 document.getElementById('currentyear').textContent = new Date().getFullYear();
 document.getElementById('lastModified').textContent = `Last Update: ${document.lastModified}`;
 
+// Theme Toggle
+const themeToggle = document.createElement('button');
+themeToggle.id = 'theme-toggle';
+themeToggle.textContent = 'Toggle Theme';
+document.body.prepend(themeToggle);
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const isDark = document.body.classList.contains('dark-theme');
+    themeToggle.textContent = isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Apply saved theme on load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+    themeToggle.textContent = 'Switch to Light Theme';
+}
+
 // Initial display
 filterCourses('all');
 filterAll?.classList.add('active');

@@ -9,6 +9,11 @@ body {
     background-color: #fff;
 }
 
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
 .navbar {
     align-items: center;
     display: flex;
@@ -17,6 +22,10 @@ body {
 
 header {
     background: black;
+}
+
+body.dark-theme header {
+    background: #1e1e1e;
 }
 
 .navbar ul {
@@ -34,8 +43,16 @@ header {
     transition: color 0.4s ease; /* Fixed invalid property */
 }
 
+body.dark-theme .navbar ul li a {
+    color: #bbbbbb;
+}
+
 .navbar ul li a:hover {
     color: aqua;
+}
+
+body.dark-theme .navbar ul li a:hover {
+    color: #00ffff;
 }
 
 .hed {
@@ -43,6 +60,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+body.dark-theme .hed {
+    background-color: #333333;
 }
 
 .hed img {
@@ -83,6 +104,13 @@ h2 {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     height: 50vh;
+}
+
+body.dark-theme .table1,
+body.dark-theme .table2,
+body.dark-theme .certificate-container {
+    background-color: #1e1e1e;
+    color: #ffffff;
 }
 
 .table1 ul {
@@ -154,6 +182,11 @@ footer {
     color: #ebe6e6;
     padding: 10px 0;
     font-family: Arial, sans-serif;
+}
+
+body.dark-theme footer {
+    background-color: #1e1e1e;
+    color: #bbbbbb;
 }
 
 footer p {

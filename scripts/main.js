@@ -62,8 +62,14 @@ function filterCourses(type = 'all') {
 });
 
 // Set the current year and last modified date
-document.getElementById('currentyear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = `Last Update: ${document.lastModified}`;
+const currentYearElement = document.getElementById('currentyear');
+const lastModifiedElement = document.getElementById('lastModified');
+if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+}
+if (lastModifiedElement) {
+    lastModifiedElement.textContent = `Last Update: ${document.lastModified}`;
+}
 
 // Theme Toggle
 const themeToggle = document.createElement('button');
@@ -87,4 +93,6 @@ if (savedTheme === 'dark') {
 
 // Initial display
 filterCourses('all');
-filterAll?.classList.add('active');
+if (filterAll) {
+    filterAll.classList.add('active');
+}

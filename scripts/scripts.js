@@ -25,8 +25,7 @@ menuToggle?.addEventListener('click', () => {
 // Highlight active page link
 const currentPage = window.location.pathname.split('/').pop();
 document.querySelectorAll('.navbar ul a').forEach(link => {
-    const linkPath = link.getAttribute('href').split('/').pop();
-    if (linkPath === currentPage || (currentPage === '' && linkPath === 'index.html')) {
+    if (link.getAttribute('href') === currentPage) {
         link.classList.add('active');
     }
 });

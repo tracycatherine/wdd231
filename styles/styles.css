@@ -31,7 +31,7 @@ background: black;
     font-size: 1.5em;
     text-decoration: none;
     color: #fff;
-    transform: 0.4 ease;
+    transition: color 0.4s ease; /* Specify the property for transition */
 }
 
 .navbar ul li a:hover{
@@ -50,8 +50,7 @@ background: black;
     padding: 10px;
     border-radius: 20px;
     padding-right: 10px;
-    box-shadow: 900px;
-    shape-rendering: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Corrected invalid box-shadow value */
 }
 .hed h1{
     color: #e3dede;
